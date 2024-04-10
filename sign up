@@ -1,1 +1,45 @@
+package Edverse;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+public class SinUp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\AG\\Downloads\\chromedriver_win32C\\chromedriver.exe");
+		
+	       WebDriver driver = new ChromeDriver();
+	       
+	       driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	       
+	       driver.get("https://www.edverse.com/sign up.html");
+	       WebElement txtbx_username = driver.findElement(By.name("signup_email"));
+	       
+	       txtbx_username.sendKeys("vks43606@gmail.com");
+	       driver.findElement(By.name("signup_f_name")).sendkeys("vikram");
+	       driver.findElement(By.name("signup_l_name")).sendkeys("kumar");
+	       driver.findElement(By.name("signup_city")).sendkeys("delhi");
+	       driver.findElement(By.name("signup_password")).sendkeys("Vikram@123");
+	       driver.findElement(By.name("signup_confirm_password")).sendkeys("Vikram@123");
+	       driver.findElement(By.name("signup_institute")).sendkeys("keywordsstudios");
+	       driver.findElement(By.name("signup_designation")).sendkeys("QA tester");
+	       driver.findElement(By.id("g-recaptcha-response")).click();
+	       driver.findElement(By.id("signup_agree_term")).click();
+	       driver.findElement(By.id("signupsubmit")).click();
+	       
+	       
+	       String expected_title = "showing login page";
+	       String actual_title = "showing login page";
+	       
+	       if (expected_title.equals(actual_title)) {
+	    	   System.out.println("sign up Successfull");
+	       }else {
+	    	   System.out.println(" faild");
+	       }
+	       
