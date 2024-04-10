@@ -17,7 +17,7 @@ public class LogIn {
        
        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
        
-       driver.get("https://www.edverse.com/login.html");
+       driver.get("https://www.edverse.com");
        WebElement txtbx_username = driver.findElement(By.name("user_login"));
        
        txtbx_username.sendKeys("Enter email");
